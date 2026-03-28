@@ -1,0 +1,62 @@
+{
+  "name": "Founder OS Demo Pack",
+  "version": "v0.1",
+  "promoted_memories": [
+    {
+      "key": "reliability.escalate_low_confidence",
+      "category": "reliability",
+      "statement": "Escalate to a human when confidence is low.",
+      "confidence": 0.68,
+      "evidence_count": 1
+    },
+    {
+      "key": "security.flag_root_owned",
+      "category": "security",
+      "statement": "Flag root-owned services as a risk that needs attention.",
+      "confidence": 0.68,
+      "evidence_count": 1
+    },
+    {
+      "key": "security.no_secret_disclosure",
+      "category": "security",
+      "statement": "Never disclose secrets or internal roadmap details externally.",
+      "confidence": 0.86,
+      "evidence_count": 2
+    },
+    {
+      "key": "taste.editorial_black_gold",
+      "category": "taste",
+      "statement": "Prefer an editorial black-and-gold aesthetic with minimal gimmicks.",
+      "confidence": 0.63,
+      "evidence_count": 1
+    },
+    {
+      "key": "voice.no_fluff",
+      "category": "voice",
+      "statement": "Use direct language and avoid fluff.",
+      "confidence": 0.86,
+      "evidence_count": 2
+    },
+    {
+      "key": "workflow.blockers_first",
+      "category": "workflow",
+      "statement": "Start with the blocker before next actions.",
+      "confidence": 0.86,
+      "evidence_count": 2
+    },
+    {
+      "key": "workflow.check_before_dispatch",
+      "category": "workflow",
+      "statement": "Run check before dispatch on remote operations.",
+      "confidence": 0.68,
+      "evidence_count": 1
+    },
+    {
+      "key": "workflow.one_line_points",
+      "category": "workflow",
+      "statement": "Keep action items to one sentence each.",
+      "confidence": 0.68,
+      "evidence_count": 1
+    }
+  ]
+}
