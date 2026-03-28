@@ -1,0 +1,75 @@
+{
+  "id": "ceo.audit_policy.v1",
+  "version": "2026-03-28",
+  "applies_to_role_profile": "ceo.systems_first.v1",
+  "trace_layer": {
+    "store_all_interactions": true,
+    "store_answer_preview": true,
+    "redact_secrets": true,
+    "purpose": "Keep a replayable audit trail even when nothing is promoted."
+  },
+  "short_term_memory": {
+    "enabled": true,
+    "default_ttl_hours": 6,
+    "eligible_signal_types": [
+      "topical_followup",
+      "active_incident",
+      "current_counterparty",
+      "live_priority"
+    ],
+    "promotion_trigger": {
+      "repeat_count": 3,
+      "window_hours": 24,
+      "note": "Repeated short-term signals may later graduate into a durable preference or standing priority."
+    }
+  },
+  "long_term_promotion": {
+    "minimum_confidence": 0.68,
+    "accepted_band_min": 0.55,
+    "promotable_categories": [
+      "principle",
+      "voice",
+      "workflow",
+      "security",
+      "reliability",
+      "taste"
+    ],
+    "one_shot_promote_categories": [
+      "security"
+    ],
+    "require_repeat_for_categories": [
+      "voice",
+      "workflow",
+      "taste"
+    ],
+    "require_direct_instruction_for": [
+      "voice",
+      "workflow"
+    ],
+    "pack_counting_rule": "Count only unique promoted keys. Repeated evidence strengthens confidence but does not increase PACK_SIZE by itself."
+  },
+  "rejection_rules": {
+    "volatile_facts": "Reject as long-term memory. Keep only in trace or short-term memory.",
+    "single_use_requests": "Reject as long-term memory unless repeated and clearly role-defining.",
+    "secrets_or_sensitive_data": "Reject from promotion and redact from trace when needed.",
+    "conflicting_memories": "Prefer the stronger evidence and reject or downgrade the weaker memory."
+  },
+  "accepted_rules": {
+    "meaning": "Accepted means the signal is useful and remembered for audit, but not yet safe to deploy as CEO operating policy.",
+    "common_cases": [
+      "a preference seen once",
+      "a weak aesthetic cue",
+      "a plausible workflow hint without enough evidence"
+    ]
+  },
+  "promotion_examples": [
+    "A direct instruction like 'start with blocker first' repeated across chats should be promoted.",
+    "A security rule like 'never disclose roadmap externally' may be promoted immediately.",
+    "A stable preference like 'use exact dates' should be promoted once evidence is strong enough."
+  ],
+  "rejection_examples": [
+    "A changing death toll from breaking news should not become long-term memory.",
+    "A single hypey sentence that conflicts with the CEO's stated principles should be rejected.",
+    "A credential pasted into chat should never be promoted."
+  ]
+}
