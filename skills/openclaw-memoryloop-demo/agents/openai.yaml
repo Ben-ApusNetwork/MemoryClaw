@@ -1,0 +1,7 @@
+interface:
+  display_name: "OpenClaw MemoryLoop Demo"
+  short_description: "Turn mixed-source uploads into an audited persona memory pack."
+  default_prompt: "Use $openclaw-memoryloop-demo to ingest article, image, and chat inputs, audit the candidate memories, and show how the promoted memory pack changes the Claw's response."
+
+policy:
+  allow_implicit_invocation: true
